@@ -139,35 +139,6 @@ Update content in each component:
 - Safari (latest)
 - Edge (latest)
 
-## 📞 Contact Information
-
-The landing page includes placeholder contact information:
-- **Phone**: +91 98765 43210
-- **Email**: info@shaaraygroup.com
-- **Address**: 123 Business Park, Sector 15, Gurgaon, Haryana 122001, India
-
-## 🚀 Deployment
-
-### Netlify
-1. Connect your GitHub repository
-2. Set build command: `npm run build`
-3. Set publish directory: `build`
-
-### Vercel
-1. Import your GitHub repository
-2. Vercel will auto-detect React settings
-3. Deploy with default settings
-
-### GitHub Pages
-1. Add `"homepage": "https://yourusername.github.io/repository-name"` to package.json
-2. Install gh-pages: `npm install --save-dev gh-pages`
-3. Add scripts to package.json:
-   ```json
-   "predeploy": "npm run build",
-   "deploy": "gh-pages -d build"
-   ```
-4. Run `npm run deploy`
-
 ## 🤝 Contributing
 
 1. Fork the repository

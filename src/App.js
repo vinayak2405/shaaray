@@ -17,11 +17,21 @@ function App() {
       <CssBaseline />
       <Box sx={{ overflow: 'hidden' }}>
         <Header />
-        <HeroSection />
-        <AboutSection />
-        <ProductCategories />
-        <WhyChooseUs />
-        <ContactSection />
+        <Box id="home">
+          <HeroSection />
+        </Box>
+        <Box id="about">
+          <AboutSection />
+        </Box>
+        <Box id="products">
+          <ProductCategories />
+        </Box>
+        <Box id="why-choose-us">
+          <WhyChooseUs />
+        </Box>
+        <Box id="contact">
+          <ContactSection />
+        </Box>
         <Footer />
         <FloatingWhatsApp />
       </Box>
