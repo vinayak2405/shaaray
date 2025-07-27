@@ -1,13 +1,22 @@
 // Website Data Configuration
+
+// Currency conversion utility
+const convertUSDToINR = (usdPrice) => {
+  const exchangeRate = 83; // 1 USD = 83 INR (approximate current rate)
+  const numericPrice = parseFloat(usdPrice.replace('$', ''));
+  const inrPrice = (numericPrice * exchangeRate).toFixed(0);
+  return `₹${inrPrice}`;
+};
+
 export const websiteData = {
   // Company Information
   company: {
-    name: "ShaaRay Group",
+    name: "Shaaray Group",
     tagline: "Innovation in Every Loop!",
     description: "Leading import and export of premium lighting solutions for homes, commercial spaces, and industrial facilities. Innovation in every loop, quality tested, eco-friendly, and globally sourced.",
     logo: {
       icon: "Lightbulb",
-      text: "ShaaRay Group"
+      text: "Shaaray Group"
     }
   },
 
@@ -62,9 +71,9 @@ export const websiteData = {
 
   // About Section
   about: {
-    title: "About ShaaRay Group",
+    title: "About Shaaray Group",
     subtitle: "Your Trusted Partner in Lighting Solutions",
-    description: "With over a decade of experience in the lighting industry, ShaaRay Group has established itself as a leading importer and exporter of premium lighting solutions. We specialize in providing innovative, energy-efficient, and aesthetically pleasing lighting products for residential, commercial, and industrial applications.",
+    description: "With over a decade of experience in the lighting industry, Shaaray Group has established itself as a leading importer and exporter of premium lighting solutions. We specialize in providing innovative, energy-efficient, and aesthetically pleasing lighting products for residential, commercial, and industrial applications.",
     features: [
       {
         icon: "Verified",
@@ -113,7 +122,39 @@ export const websiteData = {
           "Smart Lighting Systems"
         ],
         image: "/images/residential-lighting.jpg",
-        color: "#667eea"
+        color: "#667eea",
+        products: [
+          {
+            id: "res-001",
+            name: "Modern LED Chandelier",
+            description: "Elegant crystal chandelier with LED technology, perfect for living rooms and dining areas.",
+            price: convertUSDToINR("$299.99"),
+            image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&h=400&fit=crop",
+            features: ["Dimmable", "Energy Efficient", "Crystal Accents", "Remote Control"],
+            rating: 4.8,
+            reviews: 127
+          },
+          {
+            id: "res-002",
+            name: "Smart LED Bulb Pack",
+            description: "WiFi-enabled smart bulbs that can be controlled via smartphone or voice commands.",
+            price: convertUSDToINR("$49.99"),
+            image: "https://images.unsplash.com/photo-1565814636199-ae8133055c1c?w=400&h=400&fit=crop",
+            features: ["WiFi Connected", "Voice Control", "16M Colors", "Scheduling"],
+            rating: 4.6,
+            reviews: 89
+          },
+          {
+            id: "res-003",
+            name: "Contemporary Floor Lamp",
+            description: "Sleek floor lamp with adjustable head and touch controls for modern homes.",
+            price: convertUSDToINR("$159.99"),
+            image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=400&fit=crop",
+            features: ["Adjustable Head", "Touch Control", "LED Technology", "Modern Design"],
+            rating: 4.7,
+            reviews: 203
+          }
+        ]
       },
       {
         id: "commercial",
@@ -128,7 +169,39 @@ export const websiteData = {
           "Healthcare Facilities"
         ],
         image: "/images/commercial-lighting.jpg",
-        color: "#764ba2"
+        color: "#764ba2",
+        products: [
+          {
+            id: "com-001",
+            name: "Office LED Panel",
+            description: "High-efficiency LED panels designed for office environments with uniform light distribution.",
+            price: convertUSDToINR("$89.99"),
+            image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=400&fit=crop",
+            features: ["Uniform Light", "Energy Efficient", "Easy Installation", "Low Glare"],
+            rating: 4.9,
+            reviews: 156
+          },
+          {
+            id: "com-002",
+            name: "Retail Track Lighting",
+            description: "Flexible track lighting system perfect for retail stores and showrooms.",
+            price: convertUSDToINR("$199.99"),
+            image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop",
+            features: ["Adjustable Heads", "Multiple Configurations", "LED Spotlights", "Professional Look"],
+            rating: 4.7,
+            reviews: 94
+          },
+          {
+            id: "com-003",
+            name: "Hospitality Pendant",
+            description: "Elegant pendant lights designed for hotels, restaurants, and hospitality venues.",
+            price: convertUSDToINR("$349.99"),
+            image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=400&fit=crop",
+            features: ["Luxury Design", "Warm Light", "Durable Construction", "Easy Maintenance"],
+            rating: 4.8,
+            reviews: 67
+          }
+        ]
       },
       {
         id: "industrial",
@@ -143,7 +216,39 @@ export const websiteData = {
           "Motion Sensor Lights"
         ],
         image: "/images/industrial-lighting.jpg",
-        color: "#48bb78"
+        color: "#48bb78",
+        products: [
+          {
+            id: "ind-001",
+            name: "High Bay LED Light",
+            description: "High-output LED high bay lights for warehouses, factories, and industrial facilities.",
+            price: convertUSDToINR("$299.99"),
+            image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=400&fit=crop",
+            features: ["High Output", "Long Life", "IP65 Rated", "Instant Start"],
+            rating: 4.9,
+            reviews: 234
+          },
+          {
+            id: "ind-002",
+            name: "Industrial Flood Light",
+            description: "Powerful LED flood lights for outdoor industrial areas and security lighting.",
+            price: convertUSDToINR("$179.99"),
+            image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=400&fit=crop",
+            features: ["High Brightness", "Weather Resistant", "Motion Sensor", "Solar Option"],
+            rating: 4.6,
+            reviews: 178
+          },
+          {
+            id: "ind-003",
+            name: "Emergency Exit Light",
+            description: "Battery backup emergency lighting for safety compliance in industrial facilities.",
+            price: convertUSDToINR("$79.99"),
+            image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop",
+            features: ["Battery Backup", "LED Technology", "Easy Installation", "Safety Compliant"],
+            rating: 4.7,
+            reviews: 145
+          }
+        ]
       },
       {
         id: "outdoor",
@@ -158,14 +263,46 @@ export const websiteData = {
           "Architectural Lighting"
         ],
         image: "/images/outdoor-lighting.jpg",
-        color: "#4299e1"
+        color: "#4299e1",
+        products: [
+          {
+            id: "out-001",
+            name: "Solar Street Light",
+            description: "Solar-powered LED street lights with automatic dusk-to-dawn operation.",
+            price: convertUSDToINR("$399.99"),
+            image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=400&fit=crop",
+            features: ["Solar Powered", "Auto Operation", "Long Battery Life", "Weather Resistant"],
+            rating: 4.8,
+            reviews: 312
+          },
+          {
+            id: "out-002",
+            name: "Garden Path Lights",
+            description: "Elegant LED path lights for gardens, walkways, and landscape lighting.",
+            price: convertUSDToINR("$24.99"),
+            image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=400&fit=crop",
+            features: ["Solar Powered", "Warm Light", "Easy Installation", "Weatherproof"],
+            rating: 4.5,
+            reviews: 267
+          },
+          {
+            id: "out-003",
+            name: "Security Flood Light",
+            description: "Motion-activated security flood lights with HD camera integration.",
+            price: convertUSDToINR("$249.99"),
+            image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop",
+            features: ["Motion Sensor", "HD Camera", "Night Vision", "Mobile App"],
+            rating: 4.7,
+            reviews: 189
+          }
+        ]
       }
     ]
   },
 
   // Why Choose Us
   whyChooseUs: {
-    title: "Why Choose ShaaRay Group?",
+    title: "Why Choose Shaaray Group?",
     subtitle: "Excellence in Every Aspect of Our Service",
     reasons: [
       {
@@ -254,7 +391,7 @@ export const websiteData = {
   // Footer
   footer: {
     company: {
-      name: "ShaaRay Group",
+      name: "Shaaray Group",
       description: "Leading import and export of premium lighting solutions for homes, commercial spaces, and industrial facilities.",
       social: [
         { name: "Facebook", icon: "Facebook", url: "#" },
@@ -281,7 +418,7 @@ export const websiteData = {
       { name: "Warranty Information", path: "#" },
       { name: "FAQ", path: "#" }
     ],
-    copyright: "© 2024 ShaaRay Group. All rights reserved."
+    copyright: "© 2024 Shaaray Group. All rights reserved."
   },
 
   // Social Media & Contact
@@ -299,10 +436,10 @@ export const websiteData = {
 
   // SEO & Meta
   seo: {
-    title: "ShaaRay Group - Premium Lighting Solutions",
+    title: "Shaaray Group - Premium Lighting Solutions",
     description: "Leading import and export of premium lighting solutions for homes, commercial spaces, and industrial facilities. Innovation in every loop, quality tested, eco-friendly, and globally sourced.",
-    keywords: "lighting solutions, LED lighting, commercial lighting, industrial lighting, residential lighting, outdoor lighting, ShaaRay Group",
-    author: "ShaaRay Group",
+    keywords: "lighting solutions, LED lighting, commercial lighting, industrial lighting, residential lighting, outdoor lighting, Shaaray Group",
+    author: "Shaaray Group",
     ogImage: "/images/og-image.jpg"
   },
 
@@ -347,4 +484,17 @@ export const getAboutFeatures = () => about.features;
 export const getAboutStats = () => about.stats;
 export const getHeroStats = () => hero.stats;
 export const getHeroButtons = () => hero.buttons;
-export const getFloatingElements = () => hero.floatingElements; 
+export const getFloatingElements = () => hero.floatingElements;
+export const getAllProducts = () => {
+  const allProducts = [];
+  products.categories.forEach(category => {
+    category.products.forEach(product => {
+      allProducts.push({
+        ...product,
+        category: category.title,
+        categoryId: category.id
+      });
+    });
+  });
+  return allProducts;
+}; 

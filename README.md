@@ -1,6 +1,6 @@
-# ShaaRay Group - Lighting Solutions Landing Page
+# Shaaray Group - Lighting Solutions Landing Page
 
-A modern, responsive landing page for ShaaRay Group, a startup specializing in import and export of household, commercial, and industrial lighting solutions.
+A modern, responsive landing page for Shaaray Group, a startup specializing in import and export of household, commercial, and industrial lighting solutions.
 
 ## 🌟 Features
 
@@ -99,7 +99,7 @@ Edit `src/theme.js` to customize:
 
 ### Content
 Update content in each component:
-- Company name: "ShaaRay Group"
+- Company name: "Shaaray Group"
 - Contact information
 - Product categories
 - Social media links
@@ -149,7 +149,7 @@ Update content in each component:
 
 ## 📄 License
 
-This project is created for ShaaRay Group. All rights reserved.
+This project is created for Shaaray Group. All rights reserved.
 
 ## 🆘 Support
 

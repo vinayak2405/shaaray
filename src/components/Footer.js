@@ -119,7 +119,7 @@ const Footer = () => {
                     color: 'white',
                   }}
                                  >
-                   ShaaRay Group
+                   Shaaray Group
                  </Typography>
               </Box>
               
@@ -170,7 +170,7 @@ const Footer = () => {
                   fontSize: '0.875rem',
                 }}
               >
-                                 © 2024 ShaaRay Group. All rights reserved.
+                                 © 2024 Shaaray Group. All rights reserved.
               </Typography>
             </motion.div>
           </Grid>

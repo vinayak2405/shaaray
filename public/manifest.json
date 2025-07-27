@@ -1,0 +1,26 @@
+{
+  "short_name": "Shaaray Group",
+  "name": "Shaaray Group - Lighting Solutions",
+  "description": "Innovation in Every Loop! Leading import and export of premium lighting solutions for homes, commercial spaces, and industrial facilities.",
+  "icons": [
+    {
+      "src": "bulb.gif",
+      "sizes": "any",
+      "type": "image/gif",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#667eea",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "en",
+  "dir": "ltr"
+} 

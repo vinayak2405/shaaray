@@ -106,41 +106,6 @@ const FloatingWhatsApp = () => {
           </Fab>
         </Tooltip>
       </motion.div>
-
-      {/* Mobile version without tooltip */}
-      <Box
-        sx={{
-          display: { xs: 'block', md: 'none' },
-        }}
-      >
-        <motion.div
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onHoverStart={() => setIsHovered(true)}
-          onHoverEnd={() => setIsHovered(false)}
-        >
-          <Fab
-            color="primary"
-            aria-label="WhatsApp"
-            onClick={handleWhatsAppClick}
-            sx={{
-              backgroundColor: '#25D366',
-              color: 'white',
-              width: 56,
-              height: 56,
-              boxShadow: '0 4px 20px rgba(37, 211, 102, 0.3)',
-              '&:hover': {
-                backgroundColor: '#128C7E',
-                boxShadow: '0 6px 25px rgba(37, 211, 102, 0.4)',
-                transform: 'translateY(-2px)',
-              },
-              transition: 'all 0.3s ease-in-out',
-            }}
-          >
-            <WhatsAppIcon sx={{ fontSize: 28 }} />
-          </Fab>
-        </motion.div>
-      </Box>
     </Box>
   );
 };

@@ -96,7 +96,7 @@ const AboutSection = () => {
                 color: theme.palette.text.primary,
               }}
             >
-              About ShaaRay Group
+              About Shaaray Group
             </Typography>
             <Typography
               variant="h5"
@@ -195,7 +195,7 @@ const AboutSection = () => {
               color: theme.palette.text.primary,
             }}
           >
-            Why Choose ShaaRay Group?
+            Why Choose Shaaray Group?
           </Typography>
 
           <Grid container spacing={3}>

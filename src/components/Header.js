@@ -35,23 +35,32 @@ const Header = () => {
 
       // Update active section based on scroll position
       const sections = menuItems.map(item => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY + 200; // Increased offset for better detection
 
+      let currentSection = 'home';
+      
       sections.forEach((section, index) => {
         if (section) {
           const sectionTop = section.offsetTop;
           const sectionHeight = section.offsetHeight;
           
           if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            setActiveSection(menuItems[index].id);
+            currentSection = menuItems[index].id;
           }
         }
       });
+
+      // Check if we're at the very top
+      if (scrollPosition < 100) {
+        currentSection = 'home';
+      }
+
+      setActiveSection(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [menuItems]);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -76,51 +85,112 @@ const Header = () => {
       textAlign: 'center',
       background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
       height: '100%',
-      color: 'white'
+      color: 'white',
+      display: 'flex',
+      flexDirection: 'column'
     }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2 }}>
-        <Typography variant="h6" sx={{ fontWeight: 700 }}>
-          {company.name}
-        </Typography>
+      {/* Header */}
+      <Box sx={{ 
+        display: 'flex', 
+        justifyContent: 'space-between', 
+        alignItems: 'center', 
+        p: 3,
+        borderBottom: '1px solid rgba(255,255,255,0.2)'
+      }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          <Box
+            sx={{
+              background: 'rgba(255,255,255,0.2)',
+              borderRadius: '50%',
+              p: 1,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <LightbulbIcon sx={{ color: 'white', fontSize: 24 }} />
+          </Box>
+          <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1.1rem' }}>
+            {company.name}
+          </Typography>
+        </Box>
         <IconButton
           onClick={handleDrawerToggle}
-          sx={{ color: 'white' }}
+          sx={{ 
+            color: 'white',
+            '&:hover': {
+              backgroundColor: 'rgba(255,255,255,0.1)',
+            }
+          }}
         >
           <CloseIcon />
         </IconButton>
       </Box>
-      <List>
-        {menuItems.map((item) => (
-          <ListItem 
-            key={item.id} 
-            component={motion.div}
-            whileHover={{ scale: 1.05, x: 10 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => scrollToSection(item.id)}
-            sx={{
-              cursor: 'pointer',
-              borderRadius: 2,
-              mx: 1,
-              mb: 1,
-              backgroundColor: activeSection === item.id ? 'rgba(255,255,255,0.2)' : 'transparent',
-              transition: 'all 0.3s ease',
-              '&:hover': {
-                backgroundColor: 'rgba(255,255,255,0.1)',
-              }
-            }}
-          >
-            <ListItemText 
-              primary={item.name} 
+
+      {/* Navigation Items */}
+      <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <List sx={{ py: 2 }}>
+          {menuItems.map((item) => (
+            <ListItem 
+              key={item.id} 
+              component={motion.div}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => scrollToSection(item.id)}
               sx={{
-                '& .MuiListItemText-primary': {
-                  fontWeight: activeSection === item.id ? 600 : 400,
-                  fontSize: '1.1rem',
+                cursor: 'pointer',
+                borderRadius: 2,
+                mx: 2,
+                mb: 1,
+                backgroundColor: activeSection === item.id ? 'rgba(255,255,255,0.2)' : 'transparent',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  backgroundColor: 'rgba(255,255,255,0.1)',
                 }
               }}
-            />
-          </ListItem>
-        ))}
-      </List>
+            >
+              <ListItemText 
+                primary={item.name} 
+                sx={{
+                  textAlign: 'center',
+                  '& .MuiListItemText-primary': {
+                    fontWeight: activeSection === item.id ? 600 : 400,
+                    fontSize: '1.2rem',
+                    color: 'white',
+                  }
+                }}
+              />
+            </ListItem>
+          ))}
+        </List>
+
+        {/* CTA Button */}
+        <Box sx={{ p: 3, pt: 0 }}>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Button
+              variant="contained"
+              fullWidth
+              onClick={() => scrollToSection('contact')}
+              sx={{
+                background: 'rgba(255,255,255,0.2)',
+                color: 'white',
+                fontWeight: 600,
+                py: 1.5,
+                borderRadius: 2,
+                border: '1px solid rgba(255,255,255,0.3)',
+                '&:hover': {
+                  background: 'rgba(255,255,255,0.3)',
+                },
+              }}
+            >
+              {navigation.ctaButton.text}
+            </Button>
+          </motion.div>
+        </Box>
+      </Box>
     </Box>
   );
 
@@ -136,6 +206,7 @@ const Header = () => {
           ? '0 8px 32px rgba(0,0,0,0.1)'
           : '0 2px 20px rgba(0,0,0,0.05)',
         transition: 'all 0.3s ease-in-out',
+        zIndex: 1000,
       }}
       component={motion.div}
       initial={{ y: -100 }}
@@ -192,9 +263,9 @@ const Header = () => {
               edge="start"
               onClick={handleDrawerToggle}
               sx={{ 
-                color: theme.palette.text.primary,
                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                 color: 'white',
+                p: 1,
                 '&:hover': {
                   background: 'linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%)',
                 }
@@ -217,6 +288,7 @@ const Header = () => {
                       : theme.palette.text.primary,
                     fontWeight: activeSection === item.id ? 600 : 500,
                     position: 'relative',
+                    backgroundColor: 'transparent',
                     '&::after': {
                       content: '""',
                       position: 'absolute',
@@ -234,7 +306,7 @@ const Header = () => {
                       transform: 'translateX(-50%) scaleX(1)',
                     },
                     '&:hover': {
-                      backgroundColor: 'rgba(102, 126, 234, 0.08)',
+                      backgroundColor: 'transparent',
                     },
                   }}
                 >
@@ -283,21 +355,14 @@ const Header = () => {
             boxSizing: 'border-box', 
             width: 280,
             border: 'none',
+            background: 'transparent',
+          },
+          '& .MuiBackdrop-root': {
+            backgroundColor: 'rgba(0,0,0,0.5)',
           },
         }}
       >
-        <AnimatePresence>
-          {mobileOpen && (
-            <motion.div
-              initial={{ x: -280 }}
-              animate={{ x: 0 }}
-              exit={{ x: -280 }}
-              transition={{ duration: 0.3 }}
-            >
-              {drawer}
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {drawer}
       </Drawer>
     </AppBar>
   );

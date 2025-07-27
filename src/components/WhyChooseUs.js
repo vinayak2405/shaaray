@@ -84,7 +84,7 @@ const WhyChooseUs = () => {
                 color: theme.palette.text.primary,
               }}
                          >
-               Why Choose ShaaRay Group?
+               Why Choose Shaaray Group?
              </Typography>
             <Typography
               variant="h5"
@@ -217,7 +217,7 @@ const WhyChooseUs = () => {
                 mb: 3,
               }}
             >
-                             Join thousands of satisfied customers who trust ShaaRay Group for their 
+                             Join thousands of satisfied customers who trust Shaaray Group for their 
                lighting needs. Experience the difference that quality, service, and 
                innovation can make for your business.
             </Typography>

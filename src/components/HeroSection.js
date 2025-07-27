@@ -11,10 +11,7 @@ import {
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { 
-  Lightbulb as LightbulbIcon,
-  TrendingUp as TrendingUpIcon,
-  Star as StarIcon,
-  CheckCircle as CheckCircleIcon
+  Lightbulb as LightbulbIcon
 } from '@mui/icons-material';
 import { hero } from '../data/websiteData';
 
@@ -26,15 +23,7 @@ const HeroSection = () => {
     threshold: 0.1,
   });
 
-  const floatingElements = hero.floatingElements;
 
-  // Icon mapping for floating elements
-  const iconMap = {
-    Lightbulb: LightbulbIcon,
-    TrendingUp: TrendingUpIcon,
-    Star: StarIcon,
-    CheckCircle: CheckCircleIcon
-  };
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -88,43 +77,7 @@ const HeroSection = () => {
         },
       }}
     >
-      {/* Floating Elements */}
-      {floatingElements.map((element, index) => {
-        const IconComponent = iconMap[element.icon];
-        return (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: element.delay }}
-            style={{
-              position: 'absolute',
-              ...element.position,
-              zIndex: 1,
-            }}
-          >
-            <Box
-              sx={{
-                width: '60px',
-                height: '60px',
-                background: 'rgba(255,255,255,0.2)',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255,255,255,0.3)',
-                color: 'white',
-                fontSize: '24px',
-                animation: 'float 4s ease-in-out infinite',
-                animationDelay: `${element.delay}s`,
-              }}
-            >
-              <IconComponent />
-            </Box>
-          </motion.div>
-        );
-      })}
+
 
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
         <Grid container spacing={4} alignItems="center">
